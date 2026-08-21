@@ -54,7 +54,7 @@ const Hero = () => {
           Χειροποίητη γεύση, όπως παλιά.
           {/* Reserved width (10ch) + text-left so short words (e.g. Roam) sit next to "Let's" */}
           <span className="inline-block min-w-[10ch] text-left align-baseline text-primary-9 font-semibold">
-            <span className="inline align-baseline">&nbsp;{streamingWord}</span>
+            <span className="inline align-baseline"><br />{streamingWord}</span>
             {showCursor && (
               <span
                 className="inline-block w-0.5 h-[1em] ml-0.5 align-baseline animate-pulse"
