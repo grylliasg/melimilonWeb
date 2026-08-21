@@ -26,7 +26,7 @@ const Navbar = () => {
         {/* Text logo with gap; links to #home for accessibility */}
         <a href="#home" className="flex items-center gap-1 shrink-0 order-1" aria-label="Backroads home">
           <span className="text-xl font-bold text-grey-1 tracking-tight">Γλυκά/Λικέρ</span>
-          <span className="text-xl font-bold text-primary-5 tracking-tight">Μελίμιλον</span>
+          <span className="text-xl font-bold text-primary-5 tracking-tight">Μελίμηλον</span>
         </a>
 
         {/* Collapsible nav links: height 0 or 280px on mobile; flex row on md+ */}
