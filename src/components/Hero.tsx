@@ -6,13 +6,19 @@ import { motion } from 'framer-motion'
 import { useCyclingStreamingWords } from '../hooks/useCyclingStreamingWords'
 
 const HERO_KEYWORDS = [
-  'Explore',
-  'Get Lost',
-  'Wander',
-  'Adventure',
-  'Unwind',
-  'Roam',
-  'Discover',
+  'Καρπούζι',
+  'Νεραντζάκι',
+  'Σταφύλι',
+  'Καρυδάκι',
+  'Νεραντζόφλουδα',
+  'Κιτρολέμονο',
+  'Περγαμόντο',
+  'Κυδώνι',
+  'Κολοκύθα',
+  'Μελιντζανάκι',
+  'Συκαλάκι',
+  'Πορτοκάλι',
+  'Κεράσι'
 ]
 
 const Hero = () => {
@@ -26,7 +32,7 @@ const Hero = () => {
       <div
         className="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "linear-gradient(rgba(44,174,186,0.7), rgba(0,0,0,0.7)), url('/images/main.jpeg')",
+          backgroundImage: "url('/images/arxiki.jpeg')"
         }}
         aria-hidden
       />
@@ -37,7 +43,7 @@ const Hero = () => {
           transition={{ delay: 0.2, duration: 0.5 }}
           className="text-4xl md:text-5xl font-semibold uppercase tracking-widest mb-4"
         >
-          backroads app
+          Σπιτικα Γλυκα του Κουταλιου
         </motion.h1>
         <motion.p
           initial={{ y: 20, opacity: 0 }}
@@ -45,10 +51,10 @@ const Hero = () => {
           transition={{ delay: 0.35, duration: 0.5 }}
           className="text-white/95 tracking-widest mb-8 min-h-[3.5rem] md:min-h-[3.75rem] leading-relaxed"
         >
-          Discover handcrafted tours and hidden gems. Adventure, culture, and memories that last a lifetime. Let’s{' '}
+          Χειροποίητη γεύση, όπως παλιά.
           {/* Reserved width (10ch) + text-left so short words (e.g. Roam) sit next to "Let's" */}
           <span className="inline-block min-w-[10ch] text-left align-baseline text-primary-9 font-semibold">
-            <span className="inline align-baseline">{streamingWord}</span>
+            <span className="inline align-baseline">&nbsp;{streamingWord}</span>
             {showCursor && (
               <span
                 className="inline-block w-0.5 h-[1em] ml-0.5 align-baseline animate-pulse"
@@ -67,7 +73,7 @@ const Hero = () => {
           whileTap={{ scale: 0.98 }}
           className="inline-block uppercase bg-white text-primary-5 py-3 px-6 text-xl border-2 border-transparent rounded shadow-md cursor-pointer transition-colors duration-300 hover:bg-transparent hover:text-white hover:border-white"
         >
-          explore tours
+          δες τις γευσεις
         </motion.a>
       </div>
     </section>

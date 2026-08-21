@@ -1,44 +1,96 @@
 /**
- * Services section: grid of service cards (saving money, endless hiking, amazing comfort).
- * Each Service gets a direction (left/bottom/right) for staggered slide-in animation.
+ * Sweets section: static list of sweets managed directly here.
  */
 import { motion } from 'framer-motion'
-import { services } from '../data'
 import Title from './Title'
-import Service from './Service'
+import Tour from './Tour' 
 
-const directions = ['left', 'bottom', 'right'] as const
+// Ορίζεις τα γλυκά σου εδώ, τοπικά και στατικά!
+const mySweets = [
+  {
+    id: 1,
+    title: 'Καρπούζι',
+    info: 'Το απόλυτο best-seller! Τραγανό εξωτερικά, μελωμένο στην καρδιά, φτιαγμένο με την παραδοσιακή συνταγή της Άρτας.',
+    image: '/images/karpouzi.jpeg',
+    location: 'Ήπειρος',
+    date: 'Φρέσκια Παραγωγή',
+    duration: 0,
+    cost: 10,
+    slogan: "Στην κορυφή το θρυλικό γλυκό καρπούζι!"
+  },
+  {
+    id: 2,
+    title: 'Περγαμόντο',
+    info: 'Αριστοκρατικό και αρωματικό! Πλούσιο, μεθυστικό άρωμα με την τέλεια ισορροπία γλυκού και ελαφριάς πικράδας.',
+    image: '/images/pergamonto.jpeg',
+    location: 'Άρτα, Ήπειρος',
+    date: '',
+    duration: 0,
+    cost: 10,
+    slogan: "Το αριστοκρατικό περγαμόντο..."
+  },
+  {
+    id: 3,
+    title: 'Συκαλάκι',
+    info: 'Ολόκληρα, τρυφερά σύκα εποχής, βουτηγμένα σε πλούσιο, αρωματικό σιρόπι. Ένα κλασικό παραδοσιακό γλυκό κουταλιού που κλείνει όλη τη φυσική γλυκάδα και τα αρώματα της ηπειρώτικης γης σε κάθε βαζάκι.',
+    image: '/images/sikalaki.jpeg',
+    location: 'Ήπειρος',
+    date: 'Εποχικό',
+    duration: 0,
+    cost: 10,
+  },
+  {
+    id: 4,
+    title: 'Σταφύλι',
+    info: 'Το γλυκό σταφύλι είναι από τα πιο εκλεπτυσμένα και απαιτητικά γλυκά του κουταλιού. Θέλει μεγάλη μαεστρία για να μείνει η ρώγα τραγανή εξωτερικά και μελωμένη στο εσωτερικό, χωρίς να χάσει το σχήμα της.',
+    image: '/images/stafili.jpeg',
+    location: 'Ήπειρος',
+    date: 'Εποχικό',
+    duration: 0,
+    cost: 10,
+  },
+  {
+    id: 5,
+    title: 'Νεράντζι',
+    info: 'Το γλυκό σταφύλι είναι από τα πιο εκλεπτυσμένα και απαιτητικά γλυκά του κουταλιού. Θέλει μεγάλη μαεστρία για να μείνει η ρώγα τραγανή εξωτερικά και μελωμένη στο εσωτερικό, χωρίς να χάσει το σχήμα της.',
+    image: '/images/nerantzi.jpeg',
+    location: 'Ήπειρος',
+    date: 'Εποχικό',
+    duration: 0,
+    cost: 10,
+  },
+]
 
-const Services = () => {
+const directions: Array<'left' | 'right' | 'bottom'> = ['left', 'right', 'bottom']
+
+const Tours = () => {
   return (
     <motion.section
-      id="services"
+      id="tours"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.4 }}
-      className="py-20 scroll-mt-16 bg-grey-10"
+      className="py-20 scroll-mt-16"
     >
-      <Title title="our" subTitle="services" />
-      {/* Stagger children: each Service uses direction (left/bottom/right) for slide-in */}
+      <Title title="τα γλυκα" subTitle="μας" />
       <motion.div
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.15 }}
+        viewport={{ once: true, amount: 0.1 }}
         variants={{
           hidden: {},
           show: {
-            transition: { staggerChildren: 0.12, delayChildren: 0.08 },
+            transition: { staggerChildren: 0.15, delayChildren: 0.1 },
           },
         }}
-        className="w-[90vw] max-w-[1170px] mx-auto grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+        className="w-[90vw] max-w-[1170px] mx-auto grid gap-8 md:grid-cols-2 xl:grid-cols-3"
       >
-        {services.map((service, index) => (
-          <Service key={service.id} {...service} direction={directions[index % 3]} />
+        {mySweets.map((sweet, index) => (
+          <Tour key={sweet.id} {...sweet} direction={directions[index % directions.length]} />
         ))}
       </motion.div>
     </motion.section>
   )
 }
 
-export default Services
+export default Tours

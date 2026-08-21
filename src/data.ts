@@ -41,17 +41,21 @@ export const learningTips: LearningTip[] = [
 
 /** Navigation and footer link entries (anchor href + label) */
 export const pageLinks: PageLinkItem[] = [
-  { id: 1, href: "#home", text: "home" },
-  { id: 2, href: "#about", text: "about" },
-  { id: 3, href: "#services", text: "services" },
-  { id: 4, href: "#tours", text: "tours" },
+  { id: 1, href: "#home", text: "αρχικη" },
+  { id: 2, href: "#about", text: "σχετικα" },
+  { id: 3, href: "#services", text: "γλυκα του κουταλιου" },
+  { id: 4, href: "#tours", text: "λικερ" },
 ];
 
 /** Social media links with Font Awesome icon classes */
 export const socialLinks: SocialLinkItem[] = [
-  { id: 1, href: "https://www.google.com", icon: "fab fa-facebook" },
-  { id: 2, href: "https://www.google.com", icon: "fab fa-twitter" },
-  { id: 3, href: "https://www.google.com", icon: "fab fa-squarespace" },
+  { id: 1, href: "https://www.instagram.com/melimilon_sweets?igsi=aDR3ZWpzamF2Z3U0", icon: "fab fa-instagram" }
+  ,
+  {
+    id: 2,
+    href: "tel:+306984213971", // Αντικατάστησε με τον αριθμό σου (με το +30 μπροστά)
+    icon: "fas fa-phone" // Ή "fas fa-mobile-alt" για εικονίδιο κινητού
+  }
 ];
 
 /** Services section content */
@@ -59,7 +63,7 @@ export const services: ServiceItem[] = [
   {
     id: 1,
     icon: "fas fa-wallet fa-fw",
-    title: "saving money",
+    title: "Γλυκό καρπούζι",
     text: "Get the best rates on group tours and early-bird discounts. We pass the savings on to you.",
   },
   {
@@ -80,14 +84,14 @@ export const services: ServiceItem[] = [
 export const tours: TourItem[] = [
   {
     id: 1,
-    image: "/images/tour-1.jpeg",
-    date: "august 26th, 2020",
-    title: "Tibet Adventure",
-    info: "Discover ancient monasteries, high-altitude lakes, and the roof of the world. A journey through Himalayan culture and breathtaking landscapes.",
-    location: "china",
-    duration: 6,
-    cost: 2100,
-    slogan: "Roof of the World",
+    image: "/images/karpouzi.jpeg",
+    date: "",
+    title: "Γλυκό Καρπούζι",
+    info: "Αν υπάρχει ένα γλυκό που κλέβει πάντα την παράσταση και αποτελεί την απόλυτη αγαπημένη γεύση (το αδιαμφισβήτητο No 1!), αυτό είναι σίγουρα το γλυκό καρπούζι!",
+    location: "Άρτα, Ήπειρος",
+    duration: 5,
+    cost: 10,
+    slogan: "Στην κορυφή το θρυλικό γλυκό καρπούζι!",
   },
   {
     id: 2,

@@ -25,8 +25,8 @@ const Navbar = () => {
       <div className="w-[90vw] max-w-[1170px] mx-auto flex flex-wrap justify-between items-center gap-4">
         {/* Text logo with gap; links to #home for accessibility */}
         <a href="#home" className="flex items-center gap-1 shrink-0 order-1" aria-label="Backroads home">
-          <span className="text-xl font-bold text-grey-1 tracking-tight">Back</span>
-          <span className="text-xl font-bold text-primary-5 tracking-tight">Roads</span>
+          <span className="text-xl font-bold text-grey-1 tracking-tight">Γλυκά/Λικέρ</span>
+          <span className="text-xl font-bold text-primary-5 tracking-tight">Μελίμιλον</span>
         </a>
 
         {/* Collapsible nav links: height 0 or 280px on mobile; flex row on md+ */}

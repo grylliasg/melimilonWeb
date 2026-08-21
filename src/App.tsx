@@ -5,7 +5,6 @@
 import { Fragment } from 'react'
 import { AppProvider } from './context/AppContext'
 import About from './components/About'
-import EducationalBanner from './components/EducationalBanner'
 import Footer from './components/Footer'
 import KeyConceptsSection from './components/KeyConceptsSection'
 import Hero from './components/Hero'
@@ -19,7 +18,6 @@ function App() {
       <Fragment>
         <Navbar />
         <Hero />
-        <EducationalBanner />
         <About />
         <Services />
         <Tours />

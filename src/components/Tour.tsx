@@ -69,15 +69,11 @@ const Tour = ({
         <div className="flex flex-wrap items-center gap-3 text-sm">
           <span className="inline-flex items-center gap-1.5 text-primary-5 capitalize font-medium bg-primary-10 px-2 py-1 rounded">
             <MapPin className="w-3.5 h-3.5" aria-hidden />
-            {location}
+            Άρτα, Ήπειρος
           </span>
           <span className="inline-flex items-center gap-1.5 text-primary-5 font-medium bg-primary-10 px-2 py-1 rounded">
             <Banknote className="w-3.5 h-3.5" aria-hidden />
-            from ${cost}
-          </span>
-          <span className="inline-flex items-center gap-1.5 text-primary-5 font-medium bg-primary-10 px-2 py-1 rounded">
-            <Clock className="w-3.5 h-3.5" aria-hidden />
-            {duration} days
+            Από €{cost}
           </span>
         </div>
       </div>

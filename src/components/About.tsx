@@ -15,7 +15,7 @@ const About = () => {
       transition={{ duration: 0.4 }}
       className="py-20 scroll-mt-16"
     >
-      <Title title="about" subTitle="us" />
+      <Title title="Σχετικα με" subTitle="εμας" />
       <div className="w-[90vw] max-w-[1170px] mx-auto md:grid md:grid-cols-2 md:gap-8">
         <motion.div
           initial={{ x: -120, opacity: 0 }}
@@ -27,9 +27,9 @@ const About = () => {
           {/* Decorative border frame on xl screens via pseudo-element */}
           <div className="xl:before:content-[''] xl:before:absolute xl:before:w-full xl:before:h-full xl:before:border-4 xl:before:border-primary-5 xl:before:top-[-1.5rem] xl:before:left-[-1.5rem] xl:before:box-border" />
           <img
-            src="/images/about.jpeg"
+            src="/images/mom.jpeg"
             className="w-full block relative object-cover"
-            alt="awesome beach"
+            alt="mom"
           />
         </motion.div>
         <motion.article
@@ -40,14 +40,25 @@ const About = () => {
           className="mb-8 md:mb-0"
         >
           <h3 className="text-xl md:text-2xl font-semibold capitalize tracking-widest mb-4">
-            explore the difference
+            Ο Τόπος μας
           </h3>
           <p className="mb-5 text-grey-5">
-            We craft small-group journeys that go beyond the guidebook. Real places, real people, and stories you won&apos;t find anywhere else.
+            Μεγαλώνοντας στην Άρτα, στην καρδιά της Ηπείρου, μια περιοχή προικισμένη με πλούσια φύση και βαθιές παραδόσεις, έμαθα από μικρή την αξία της αυθεντικής γεύσης. Οι μνήμες από τις μυρωδιές της κουζίνας, τα φρέσκα φρούτα του τόπου μας και η αγάπη για τη σπιτική φροντίδα είναι αυτά που με ενέπνευσαν να δημιουργήσω το Μελιμιλον.
+          </p>
+
+          <h3 className="text-xl md:text-2xl font-semibold capitalize tracking-widest mb-4 mt-6">
+            Η φιλοσοφία μας
+          </h3>
+          <p className="mb-5 text-grey-5">
+            <strong>Μεράκι και Παράδοση:</strong> Κάθε βαζάκι γλυκού κουταλιού φτιάχνεται με προσωπική φροντίδα, ακολουθώντας πιστά τις κλασικές, δοκιμασμένες συνταγές.
           </p>
           <p className="mb-5 text-grey-5">
-            Whether you&apos;re into mountains, wildlife, or city lights, our expert guides and local partners make every trip safe, smooth, and unforgettable.
+            <strong>Αγνά Υλικά:</strong> Επιλέγω με προσοχή φρούτα εποχής άριστης ποιότητας, χωρίς τεχνητά αρώματα, χρωστικές ή συντηρητικά.
           </p>
+          <p className="mb-5 text-grey-5">
+            <strong>Αυθεντική Γεύση:</strong> Δίνω χρόνο στα γλυκά μας να βράσουν αργά και να δέσουν σωστά, όπως ακριβώς έκαναν οι παλιότεροι.
+          </p>
+
           <a
             href="#"
             className="inline-block uppercase bg-primary-5 text-white py-2 px-4 rounded border-2 border-transparent cursor-pointer transition-all duration-300 text-sm shadow hover:text-primary-1 hover:bg-primary-8"
