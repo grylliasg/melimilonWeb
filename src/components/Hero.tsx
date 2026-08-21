@@ -28,9 +28,9 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen relative flex justify-center items-center">
       <div className="absolute inset-0 bg-primary-5" />
-      {/* Background image only on md+; gradient overlay for readability */}
+      {/* Background image για όλες τις οθόνες */}
       <div
-        className="absolute inset-0 hidden md:block bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/images/arxiki.jpeg')"
         }}
