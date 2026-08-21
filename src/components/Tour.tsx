@@ -3,7 +3,7 @@
  * title, info, and pills for location (MapPin), cost (Banknote), duration (Clock). Lucide icons for badges.
  */
 import { motion } from 'framer-motion'
-import { Calendar, Clock, MapPin, Banknote, Sparkles } from 'lucide-react'
+import { Calendar, MapPin, Banknote, Sparkles } from 'lucide-react'
 import { useStreamingText } from '../hooks/useStreamingText'
 import type { TourItem } from '../types'
 
@@ -22,8 +22,6 @@ const Tour = ({
   date,
   title,
   info,
-  location,
-  duration,
   cost,
   slogan,
   direction = 'bottom',
