@@ -27,7 +27,7 @@ const Reviews = () => {
       .select('*')
       .eq('approved', true)
       .order('created_at', { ascending: false })
-      .limit(4)
+      .limit(3)
 
     if (error) {
       console.error('Error loading reviews:', error)
@@ -110,16 +110,22 @@ const Reviews = () => {
                 <motion.article
                   key={review.id}
                   variants={{
-                    hidden: { opacity: 0, y: 30 },
+                    hidden: {
+                      opacity: 0,
+                      y: 30,
+                    },
                     show: {
                       opacity: 1,
                       y: 0,
-                      transition: { duration: 0.5 },
+                      transition: {
+                        duration: 0.5,
+                      },
                     },
                   }}
                   whileHover={{ scale: 1.02 }}
                   className="bg-grey-10 shadow-light rounded-lg p-6 hover:shadow-dark transition-shadow duration-300"
                 >
+                  {/* Stars */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-1">
                       {Array.from({ length: 5 }).map((_, index) => (
@@ -137,10 +143,12 @@ const Reviews = () => {
                     <MessageCircle className="w-5 h-5 text-primary-5" />
                   </div>
 
+                  {/* Comment */}
                   <p className="text-grey-5 text-sm leading-relaxed mb-5">
                     "{review.comment}"
                   </p>
 
+                  {/* Name + Date */}
                   <div className="border-t border-grey-5/20 pt-4">
                     <p className="font-semibold tracking-wide capitalize">
                       {review.name}
@@ -158,7 +166,7 @@ const Reviews = () => {
             <div className="text-center mt-10 mb-16">
               <Link
                 to="/reviews"
-                className="inline-flex items-center justify-center bg-primary-8 text-primary-1 font-medium py-3 px-6 rounded-md hover:bg-primary-5 transition-colors duration-300"
+                className="inline-flex items-center justify-center gap-2 bg-primary-8 text-primary-1 font-medium py-3 px-6 rounded-md hover:bg-primary-5 transition-colors duration-300"
               >
                 Δείτε όλες τις κριτικές →
               </Link>
@@ -172,7 +180,7 @@ const Reviews = () => {
           </div>
         )}
 
-        {/* Review form */}
+        {/* Review Form */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
