@@ -11,6 +11,7 @@ import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import Services from './components/Services'
 import Tours from './components/Tours'
+import Reviews from './components/Reviews'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Services />
         <Tours />
         <KeyConceptsSection />
+        <Reviews/>
         <Footer />
       </Fragment>
     </AppProvider>
