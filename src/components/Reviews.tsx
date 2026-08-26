@@ -54,7 +54,7 @@ const Reviews = () => {
         name: name.trim(),
         rating,
         comment: comment.trim(),
-        approved: false,
+        approved: true,
       },
     ])
 
