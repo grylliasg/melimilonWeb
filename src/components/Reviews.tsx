@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Star, Send, MessageCircle } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { supabase } from '../supabase'
 import Title from './Title'
 
@@ -26,6 +27,7 @@ const Reviews = () => {
       .select('*')
       .eq('approved', true)
       .order('created_at', { ascending: false })
+      .limit(4)
 
     if (error) {
       console.error('Error loading reviews:', error)
@@ -70,6 +72,8 @@ const Reviews = () => {
     setRating(5)
     setComment('')
 
+    await fetchReviews()
+
     alert('Ευχαριστούμε! Η κριτική σας δημοσιεύθηκε.')
   }
 
@@ -87,67 +91,79 @@ const Reviews = () => {
 
         {/* Reviews */}
         {reviews.length > 0 ? (
-          <motion.div
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={{
-              hidden: {},
-              show: {
-                transition: {
-                  staggerChildren: 0.12,
-                },
-              },
-            }}
-            className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 mb-16"
-          >
-            {reviews.map((review) => (
-              <motion.article
-                key={review.id}
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  show: {
-                    opacity: 1,
-                    y: 0,
-                    transition: { duration: 0.5 },
+          <>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={{
+                hidden: {},
+                show: {
+                  transition: {
+                    staggerChildren: 0.12,
                   },
-                }}
-                whileHover={{ scale: 1.02 }}
-                className="bg-grey-10 shadow-light rounded-lg p-6 hover:shadow-dark transition-shadow duration-300"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-1">
-                    {Array.from({ length: 5 }).map((_, index) => (
-                      <Star
-                        key={index}
-                        className={`w-4 h-4 ${
-                          index < review.rating
-                            ? 'fill-primary-5 text-primary-5'
-                            : 'text-grey-5'
-                        }`}
-                      />
-                    ))}
+                },
+              }}
+              className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
+            >
+              {reviews.map((review) => (
+                <motion.article
+                  key={review.id}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    show: {
+                      opacity: 1,
+                      y: 0,
+                      transition: { duration: 0.5 },
+                    },
+                  }}
+                  whileHover={{ scale: 1.02 }}
+                  className="bg-grey-10 shadow-light rounded-lg p-6 hover:shadow-dark transition-shadow duration-300"
+                >
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-1">
+                      {Array.from({ length: 5 }).map((_, index) => (
+                        <Star
+                          key={index}
+                          className={`w-4 h-4 ${
+                            index < review.rating
+                              ? 'fill-primary-5 text-primary-5'
+                              : 'text-grey-5'
+                          }`}
+                        />
+                      ))}
+                    </div>
+
+                    <MessageCircle className="w-5 h-5 text-primary-5" />
                   </div>
 
-                  <MessageCircle className="w-5 h-5 text-primary-5" />
-                </div>
-
-                <p className="text-grey-5 text-sm leading-relaxed mb-5">
-                  "{review.comment}"
-                </p>
-
-                <div className="border-t border-grey-5/20 pt-4">
-                  <p className="font-semibold tracking-wide capitalize">
-                    {review.name}
+                  <p className="text-grey-5 text-sm leading-relaxed mb-5">
+                    "{review.comment}"
                   </p>
 
-                  <p className="text-grey-5 text-xs mt-1">
-                    {new Date(review.created_at).toLocaleDateString('el-GR')}
-                  </p>
-                </div>
-              </motion.article>
-            ))}
-          </motion.div>
+                  <div className="border-t border-grey-5/20 pt-4">
+                    <p className="font-semibold tracking-wide capitalize">
+                      {review.name}
+                    </p>
+
+                    <p className="text-grey-5 text-xs mt-1">
+                      {new Date(review.created_at).toLocaleDateString('el-GR')}
+                    </p>
+                  </div>
+                </motion.article>
+              ))}
+            </motion.div>
+
+            {/* All reviews button */}
+            <div className="text-center mt-10 mb-16">
+              <Link
+                to="/reviews"
+                className="inline-flex items-center justify-center bg-primary-8 text-primary-1 font-medium py-3 px-6 rounded-md hover:bg-primary-5 transition-colors duration-300"
+              >
+                Δείτε όλες τις κριτικές →
+              </Link>
+            </div>
+          </>
         ) : (
           <div className="text-center mb-16">
             <p className="text-grey-5">

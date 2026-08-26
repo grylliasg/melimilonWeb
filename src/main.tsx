@@ -1,19 +1,20 @@
-/**
- * Application entry point. Mounts the React app into the DOM.
- * - createRoot (React 18) replaces the legacy ReactDOM.render.
- * - StrictMode helps catch side effects and deprecated APIs during development.
- */
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App'
+import AllReviews from './components/AllReviews'
 
-// #root is defined in index.html; required for Vite/SPA mounting
 const rootEl = document.getElementById('root')
 if (!rootEl) throw new Error('Root element #root not found')
 
 createRoot(rootEl).render(
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/reviews" element={<AllReviews />} />
+      </Routes>
+    </BrowserRouter>
   </StrictMode>
 )
