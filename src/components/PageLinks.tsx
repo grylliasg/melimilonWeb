@@ -8,13 +8,14 @@ import PageLink from './PageLink'
 interface PageLinksProps {
   parentClass: string
   itemClass: string
+  onLinkClick?: () => void
 }
 
-const PageLinks = ({ parentClass, itemClass }: PageLinksProps) => {
+const PageLinks = ({ parentClass, itemClass, onLinkClick }: PageLinksProps) => {
   return (
     <ul className={`${parentClass} pt-4 md:pt-0`} id="nav-links">
       {pageLinks.map((link) => (
-        <PageLink key={link.id} link={link} itemClass={itemClass} />
+        <PageLink key={link.id} link={link} itemClass={itemClass} onClick={onLinkClick} />
       ))}
     </ul>
   )

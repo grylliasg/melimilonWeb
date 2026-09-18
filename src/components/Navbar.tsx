@@ -15,6 +15,10 @@ const Navbar = () => {
     setShowLinks((prev) => !prev)
   }
 
+  const closeMenu = () => {
+    setShowLinks(false)
+  }
+
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
@@ -31,23 +35,23 @@ const Navbar = () => {
         </a>
 
         <div className="order-3 md:order-2 md:flex md:w-auto md:flex-1 md:justify-center">
-          {/* Mobile overlay menu: appears as full-screen panel when showLinks is true */}
-          <div className={`md:hidden fixed inset-0 z-40 transition-transform duration-300 ${showLinks ? 'translate-y-0' : 'translate-y-[-120%]'}`} aria-hidden={!showLinks}>
-            <div className="glass-panel flex h-full w-full flex-col items-center justify-center gap-6 p-8">
-              <PageLinks parentClass="flex flex-col items-center gap-6" itemClass="nav-link" />
-              <button
-                type="button"
-                onClick={toggleLinks}
-                className="mt-4 rounded-full bg-primary-5 px-6 py-3 text-sm font-semibold text-white"
-                aria-label="Κλείσιμο μενού"
-              >
-                Κλείσιμο
-              </button>
+          {showLinks && (
+            <div className="fixed inset-0 z-40 bg-white/95 md:hidden" aria-hidden={!showLinks}>
+              <div className="flex h-full w-full flex-col items-center justify-center gap-6 p-8">
+                <PageLinks parentClass="flex flex-col items-center gap-6" itemClass="nav-link" onLinkClick={closeMenu} />
+                <button
+                  type="button"
+                  onClick={closeMenu}
+                  className="mt-4 rounded-full bg-primary-5 px-6 py-3 text-sm font-semibold text-white"
+                  aria-label="Κλείσιμο μενού"
+                >
+                  Κλείσιμο
+                </button>
+              </div>
             </div>
-          </div>
+          )}
 
-          {/* Desktop / md+ inline links */}
-          <div className={`hidden w-full md:block`} id="nav-links-wrap">
+          <div className="hidden w-full md:block" id="nav-links-wrap">
             <PageLinks parentClass="md:flex md:flex-row md:items-center md:gap-6" itemClass="nav-link" />
           </div>
         </div>

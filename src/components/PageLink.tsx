@@ -7,17 +7,19 @@ import type { PageLinkItem } from '../types'
 interface PageLinkProps {
   link: PageLinkItem
   itemClass: string
+  onClick?: () => void
 }
 
-const PageLink = ({ link, itemClass }: PageLinkProps) => {
+const PageLink = ({ link, itemClass, onClick }: PageLinkProps) => {
   const isFooter = itemClass === 'footer-link'
   const base = 'block uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer text-[0.72rem] font-medium'
   const navStyles = 'py-3 px-4 md:py-0 md:px-0 text-grey-2 hover:text-primary-5 md:hover:text-primary-5 md:hover:bg-transparent rounded-full'
   const footerStyles = 'py-2 px-4 text-white/90 hover:text-primary-8'
   const cn = isFooter ? `${base} ${footerStyles}` : `${base} ${navStyles}`
+
   return (
     <li>
-      <a href={link.href} className={cn}>
+      <a href={link.href} className={cn} onClick={onClick}>
         {link.text}
       </a>
     </li>
