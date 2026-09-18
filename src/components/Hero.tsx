@@ -26,55 +26,83 @@ const Hero = () => {
   const showCursor = phase === 'in' || phase === 'out'
 
   return (
-    <section id="home" className="min-h-screen relative flex justify-center items-center">
-      <div className="absolute inset-0 bg-primary-5" />
-      {/* Background image για όλες τις οθόνες */}
+    <section id="home" className="relative flex min-h-[70vh] items-center justify-center overflow-hidden pt-20 sm:min-h-screen">
+      <div className="absolute inset-0 bg-primary-1/80" />
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
         style={{
           backgroundImage: "url('/images/arxiki.jpeg')"
         }}
         aria-hidden
       />
-      <div className="relative z-10 text-center text-white px-6 md:px-0 w-full max-w-[45rem]">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(242,201,140,0.35),_transparent_45%)]" aria-hidden />
+
+      <div className="relative z-10 w-full max-w-[46rem] px-6 text-center text-white md:px-0">
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15, duration: 0.5 }}
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-[0.7rem] uppercase tracking-[0.25em] text-primary-9 backdrop-blur-md"
+        >
+          <span className="h-2 w-2 rounded-full bg-primary-8" />
+          Παραδοσιακή γεύση από την Άρτα
+        </motion.div>
+
         <motion.h1
           initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="text-4xl md:text-5xl font-semibold uppercase tracking-widest mb-4"
+          className="mb-5 text-4xl font-semibold uppercase tracking-[0.22em] md:text-6xl"
         >
-          Σπιτικα Γλυκα του Κουταλιου
+          Σπιτικά Γλυκά<br />του Κουταλιού
         </motion.h1>
+
         <motion.p
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.35, duration: 0.5 }}
-          className="text-white/95 tracking-widest mb-8 min-h-[3.5rem] md:min-h-[3.75rem] leading-relaxed"
+          className="mb-8 min-h-[3.5rem] text-base tracking-[0.18em] text-white/90 md:text-lg"
         >
           Χειροποίητη γεύση, όπως παλιά.
-          {/* Reserved width (10ch) + text-left so short words (e.g. Roam) sit next to "Let's" */}
-          <span className="inline-block min-w-[10ch] text-left align-baseline text-primary-9 font-semibold">
+          <span className="ml-2 inline-block min-w-[10ch] text-left align-baseline font-semibold text-primary-8">
             <span className="inline align-baseline"><br />{streamingWord}</span>
             {showCursor && (
               <span
-                className="inline-block w-0.5 h-[1em] ml-0.5 align-baseline animate-pulse"
+                className="ml-0.5 inline-block h-[1em] w-0.5 animate-pulse align-baseline bg-primary-8"
                 style={{ animationDuration: '0.7s' }}
                 aria-hidden
               />
             )}
           </span>
         </motion.p>
-        <motion.a
-          href="#tours"
+
+        <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.42, duration: 0.45 }}
+          className="mx-auto mb-8 max-w-xl text-sm uppercase tracking-[0.2em] text-primary-9/95"
+        >
+          Και πολλές ακόμη γεύσεις, εκτός από τις φωτογραφίες, φτιαγμένες με αγάπη.
+        </motion.p>
+
+        <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.98 }}
-          className="inline-block uppercase bg-white text-primary-5 py-3 px-6 text-xl border-2 border-transparent rounded shadow-md cursor-pointer transition-colors duration-300 hover:bg-transparent hover:text-white hover:border-white"
+          className="flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          δες τις γευσεις
-        </motion.a>
+          <motion.a
+            href="#services"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            className="brand-button"
+          >
+            Δες τις γεύσεις
+          </motion.a>
+          <a href="#reviews" className="rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-medium uppercase tracking-[0.2em] text-white backdrop-blur-sm transition-colors duration-300 hover:bg-white/20">
+            Κριτικές
+          </a>
+        </motion.div>
       </div>
     </section>
   )

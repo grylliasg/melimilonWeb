@@ -52,6 +52,9 @@ const Tours = () => {
       className="py-20 scroll-mt-16"
     >
       <Title title="τα λικερ" subTitle="μας" />
+      <p className="section-shell mb-10 max-w-3xl text-center text-sm uppercase tracking-[0.18em] text-grey-5 md:text-base">
+        Οι φωτογραφίες είναι ενδεικτικές — η γκάμα μας ξεφεύγει από αυτές και περιλαμβάνει ακόμη περισσότερες μοναδικές γεύσεις.
+      </p>
       <motion.div
         initial="hidden"
         whileInView="show"

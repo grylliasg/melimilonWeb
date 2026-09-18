@@ -1,27 +1,63 @@
-/* Google Font: Outfit — used in tailwind.config.js as primary font family */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
-/* Tailwind layers: base resets, component classes, utility classes */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Global base styles; customizations beyond Tailwind defaults */
 @layer base {
   html {
     @apply scroll-smooth;
   }
+
   body {
-    @apply font-sans text-[0.875rem] leading-relaxed text-grey-1 bg-white antialiased;
+    @apply font-sans text-[0.875rem] leading-relaxed text-grey-1 antialiased;
+    background:
+      radial-gradient(circle at top, rgba(242, 201, 140, 0.22), transparent 28%),
+      linear-gradient(180deg, #fffaf7 0%, #fff8ee 32%, #fffefc 100%);
   }
+
   ul {
     @apply list-none;
   }
+
   a {
     @apply no-underline;
   }
-  /* Full-width images except navbar logo (nav-logo keeps intrinsic size) */
+
   img:not(.nav-logo) {
     @apply w-full block;
+  }
+}
+
+@layer components {
+  .section-shell {
+    @apply w-[90vw] max-w-[1170px] mx-auto;
+  }
+
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-md border border-primary-9/60 shadow-light;
+  }
+
+  .brand-button {
+    @apply inline-flex items-center justify-center rounded-full bg-primary-5 px-6 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-white transition-all duration-300 hover:bg-primary-6 hover:-translate-y-0.5 hover:shadow-lg;
+  }
+
+  .brand-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-primary-7/40 bg-primary-10 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-primary-2;
+  }
+
+  /* Mobile-friendly tweaks */
+  .nav-icon a {
+    @apply inline-flex items-center justify-center h-10 w-10 rounded-full text-xl;
+  }
+
+  .nav-link a {
+    @apply block py-3 px-6 text-lg font-medium;
+  }
+
+  @screen md {
+    .nav-link a {
+      @apply py-0 px-0 text-base;
+    }
   }
 }

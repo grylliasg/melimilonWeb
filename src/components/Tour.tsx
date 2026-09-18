@@ -23,6 +23,7 @@ const Tour = ({
   title,
   info,
   cost,
+  location,
   slogan,
   direction = 'bottom',
 }: TourProps) => {
@@ -42,35 +43,36 @@ const Tour = ({
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.15 }}
-      whileHover={{ scale: 1.02 }}
-      className="bg-grey-10 shadow-light rounded-lg mb-8 overflow-hidden hover:shadow-dark transition-shadow duration-300"
+      whileHover={{ y: -6 }}
+      className="mb-8 overflow-hidden rounded-[1.75rem] border border-primary-9/70 bg-white shadow-light transition-shadow duration-300 hover:shadow-dark"
     >
       <div className="relative">
-        <img src={image} className="h-60 w-full object-cover" alt={title} />
-        <span className="absolute right-0 bottom-0 inline-flex items-center gap-1.5 bg-primary-8 text-primary-1 capitalize py-1.5 px-2.5 text-sm font-medium rounded-tl-md">
-          <Calendar className="w-3.5 h-3.5" aria-hidden />
-          {date}
+        <img src={image} className="h-48 w-full object-cover sm:h-72" alt={title} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent" aria-hidden />
+        <span className="absolute bottom-3 right-3 inline-flex items-center gap-1.5 rounded-full bg-white/90 px-3 py-1.5 text-xs font-medium text-primary-2 backdrop-blur-sm">
+          <Calendar className="h-3.5 w-3.5" aria-hidden />
+          {date || 'Παραδοσιακή'}
         </span>
         {slogan && (
-          <span className="absolute left-0 top-2 inline-flex items-center gap-1 bg-grey-1/90 text-white text-xs font-medium px-2 py-1 rounded-r-md">
-            <Sparkles className="w-3 h-3" aria-hidden />
+          <span className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full bg-grey-1/85 px-2.5 py-1 text-[0.62rem] font-medium uppercase tracking-[0.12em] text-white backdrop-blur-sm">
+            <Sparkles className="h-3 w-3" aria-hidden />
             {streamingSlogan}
             {streamingSlogan.length < (slogan?.length ?? 0) && (
-              <span className="inline-block w-0.5 h-3 bg-white animate-pulse" aria-hidden />
+              <span className="inline-block h-3 w-0.5 animate-pulse bg-white" aria-hidden />
             )}
           </span>
         )}
       </div>
-      <div className="p-5">
-        <h4 className="text-lg font-semibold capitalize tracking-widest mb-3">{title}</h4>
-        <p className="mt-2 mb-4 text-grey-5 text-sm leading-relaxed">{info}</p>
-        <div className="flex flex-wrap items-center gap-3 text-sm">
-          <span className="inline-flex items-center gap-1.5 text-primary-5 capitalize font-medium bg-primary-10 px-2 py-1 rounded">
-            <MapPin className="w-3.5 h-3.5" aria-hidden />
-            Άρτα, Ήπειρος
+      <div className="space-y-4 p-5">
+        <h4 className="text-xl font-semibold uppercase tracking-[0.12em] text-grey-1">{title}</h4>
+        <p className="text-sm leading-relaxed text-grey-5">{info}</p>
+        <div className="flex flex-wrap items-center gap-2 text-sm">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-10 px-2.5 py-1.5 font-medium text-primary-3">
+            <MapPin className="h-3.5 w-3.5" aria-hidden />
+            {location}
           </span>
-          <span className="inline-flex items-center gap-1.5 text-primary-5 font-medium bg-primary-10 px-2 py-1 rounded">
-            <Banknote className="w-3.5 h-3.5" aria-hidden />
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary-10 px-2.5 py-1.5 font-medium text-primary-3">
+            <Banknote className="h-3.5 w-3.5" aria-hidden />
             Από €{cost}
           </span>
         </div>

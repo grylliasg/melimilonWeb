@@ -1,32 +1,28 @@
 /**
- * Root App component. Defines the single-page layout order.
- * AppProvider wraps the tree so EducationalBanner can consume learning-tip state via Context.
+ * Root App component. Defines the single-page layout order for the storefront.
  */
 import { Fragment } from 'react'
-import { AppProvider } from './context/AppContext'
 import About from './components/About'
 import Footer from './components/Footer'
-import KeyConceptsSection from './components/KeyConceptsSection'
 import Hero from './components/Hero'
+import KeyConceptsSection from './components/KeyConceptsSection'
 import Navbar from './components/Navbar'
+import Reviews from './components/Reviews'
 import Services from './components/Services'
 import Tours from './components/Tours'
-import Reviews from './components/Reviews'
 
 function App() {
   return (
-    <AppProvider>
-      <Fragment>
-        <Navbar />
-        <Hero />
-        <About />
-        <Services />
-        <Tours />
-        <KeyConceptsSection />
-        <Reviews/>
-        <Footer />
-      </Fragment>
-    </AppProvider>
+    <Fragment>
+      <Navbar />
+      <Hero />
+      <About />
+      <Services />
+      <Tours />
+      <KeyConceptsSection />
+      <Reviews />
+      <Footer />
+    </Fragment>
   )
 }
 

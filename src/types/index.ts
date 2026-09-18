@@ -25,13 +25,6 @@ export interface ServiceItem {
   text: string
 }
 
-/** Learning tip for the educational banner */
-export interface LearningTip {
-  id: number
-  title: string
-  description: string
-}
-
 /** Tour card data - image is public URL path in Vite */
 export interface TourItem {
   id: number

@@ -8,45 +8,44 @@ import PageLinks from "./PageLinks";
 import SocialLink from "./SocialLink";
 
 const Footer = () => {
-  return (    
+  return (
     <motion.footer
       initial={{ y: 40, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="py-20 scroll-mt-16 bg-grey-1 text-center px-8"
+      className="scroll-mt-16 bg-[#2a1d13] px-8 py-20 text-center text-white"
     >
-      {/* Μήνυμα επικοινωνίας πάνω-πάνω */}
-      <div className="mb-6 text-white text-base md:text-lg">
-        📞 Κάλεσε με τώρα στο{" "}
-        <a 
-          href="tel:+306984213971" 
-          className="underline font-bold hover:text-primary-5 transition-colors"
-        >
-          6984213971
-        </a>{" "}
-      </div>
+      <div className="section-shell">
+        <div className="mb-6 text-base md:text-lg">
+          📞 Κάλεσε με τώρα στο{' '}
+          <a href="tel:+306984213971" className="font-bold text-primary-8 underline transition-colors hover:text-primary-9">
+            6984213971
+          </a>
+        </div>
 
-      <PageLinks
-        parentClass="flex justify-center flex-wrap gap-4 mb-6"
-        itemClass="footer-link"
-      />
-      <ul className="flex justify-center flex-wrap gap-4 mb-6 list-none m-0 p-0">
-        {socialLinks.map((link) => (
-          <li key={link.id}>
-            <SocialLink
-              {...link}
-              itemClass="text-2xl md:text-3xl text-white hover:text-primary-5 transition-colors duration-300"
-            />
-          </li>
-        ))}
-      </ul>
-      <p className="capitalize tracking-widest text-white text-sm">
-        &copy;Melimilon{" "}
-        <span id="date">{new Date().getFullYear()}</span>. all rights reserved
-      </p>
+        <PageLinks
+          parentClass="mb-6 flex flex-wrap justify-center gap-4"
+          itemClass="footer-link"
+        />
+
+        <ul className="mb-6 flex flex-wrap justify-center gap-4 p-0">
+          {socialLinks.map((link) => (
+            <li key={link.id}>
+              <SocialLink
+                {...link}
+                itemClass="text-2xl text-white transition-colors duration-300 hover:text-primary-8 md:text-3xl"
+              />
+            </li>
+          ))}
+        </ul>
+
+        <p className="text-sm tracking-[0.22em] text-white/80 uppercase">
+          &copy; Melimilon <span id="date">{new Date().getFullYear()}</span>. All rights reserved
+        </p>
+      </div>
     </motion.footer>
-  );
-};
+  )
+}
 
 export default Footer;

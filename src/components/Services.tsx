@@ -66,13 +66,16 @@ const directions: Array<'left' | 'right' | 'bottom'> = ['left', 'right', 'bottom
 const Tours = () => {
   return (
     <motion.section
-      id="tours"
+      id="services"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
       className="py-20 scroll-mt-16"
     >
       <Title title="τα γλυκα" subTitle="μας" />
+      <p className="section-shell mb-10 max-w-3xl text-center text-sm uppercase tracking-[0.18em] text-grey-5 md:text-base">
+        Στις φωτογραφίες βλέπετε μόνο μερικές από τις γεύσεις μας — φτιάχνουμε και πολλές ακόμη παραδοσιακές συνταγές κάθε εποχή.
+      </p>
       <motion.div
         initial="hidden"
         whileInView="show"

@@ -16,9 +16,10 @@ const Title = ({ title, subTitle }: TitleProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.5 }}
-      className="text-center mb-16"
+      className="mb-16 text-center"
     >
-      <h2 className="text-3xl md:text-4xl font-semibold uppercase tracking-widest">
+      <span className="brand-chip mb-5">Melimilon</span>
+      <h2 className="text-3xl font-semibold uppercase tracking-[0.2em] text-grey-1 md:text-4xl">
         {title} <span className="text-primary-5">{subTitle}</span>
       </h2>
     </motion.div>

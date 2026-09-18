@@ -11,9 +11,9 @@ interface PageLinkProps {
 
 const PageLink = ({ link, itemClass }: PageLinkProps) => {
   const isFooter = itemClass === 'footer-link'
-  const base = 'block uppercase tracking-widest transition-all duration-300 cursor-pointer text-base'
-  const navStyles = 'py-4 px-8 md:py-0 md:px-0 text-grey-1 hover:text-primary-1 hover:bg-primary-8 md:hover:bg-transparent md:hover:text-primary-5'
-  const footerStyles = 'py-2 px-4 text-white hover:text-primary-5'
+  const base = 'block uppercase tracking-[0.2em] transition-all duration-300 cursor-pointer text-[0.72rem] font-medium'
+  const navStyles = 'py-3 px-4 md:py-0 md:px-0 text-grey-2 hover:text-primary-5 md:hover:text-primary-5 md:hover:bg-transparent rounded-full'
+  const footerStyles = 'py-2 px-4 text-white/90 hover:text-primary-8'
   const cn = isFooter ? `${base} ${footerStyles}` : `${base} ${navStyles}`
   return (
     <li>
