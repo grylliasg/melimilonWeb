@@ -17,9 +17,20 @@ const PageLink = ({ link, itemClass, onClick }: PageLinkProps) => {
   const footerStyles = 'py-2 px-4 text-white/90 hover:text-primary-8'
   const cn = isFooter ? `${base} ${footerStyles}` : `${base} ${navStyles}`
 
+  const iconFor = (href: string) => {
+    if (href.includes('services') || href.includes('glika')) return 'fas fa-utensils'
+    if (href.includes('liqueurs') || href.includes('liker')) return 'fas fa-wine-bottle'
+    if (href.includes('reviews') || href.includes('krit')) return 'fas fa-star'
+    if (href.includes('about') || href.includes('σχετικ')) return 'fas fa-info-circle'
+    return 'fas fa-circle'
+  }
+
+  const iconClass = iconFor(link.href)
+
   return (
     <li>
       <a href={link.href} className={cn} onClick={onClick}>
+        <i className={`${iconClass} mr-3 text-base`} aria-hidden />
         {link.text}
       </a>
     </li>

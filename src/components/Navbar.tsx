@@ -36,19 +36,28 @@ const Navbar = () => {
 
         <div className="order-3 md:order-2 md:flex md:w-auto md:flex-1 md:justify-center">
           {showLinks && (
-            <div className="fixed inset-0 z-40 bg-white/95 md:hidden" aria-hidden={!showLinks}>
-              <div className="flex h-full w-full flex-col items-center justify-center gap-6 p-8">
-                <PageLinks parentClass="flex flex-col items-center gap-6" itemClass="nav-link" onLinkClick={closeMenu} />
-                <button
-                  type="button"
-                  onClick={closeMenu}
-                  className="mt-4 rounded-full bg-primary-5 px-6 py-3 text-sm font-semibold text-white"
-                  aria-label="Κλείσιμο μενού"
-                >
-                  Κλείσιμο
-                </button>
+            <motion.div
+              initial={{ y: -16, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.28 }}
+              className="fixed left-4 right-4 top-[64px] z-50 md:hidden"
+            >
+              <div className="glass-panel mx-auto w-full max-w-md rounded-2xl p-6 shadow-dark">
+                <div className="flex items-center justify-end">
+                  <button onClick={closeMenu} aria-label="Κλείσιμο μενού" className="ml-auto inline-flex items-center justify-center rounded-full bg-primary-10 p-2 text-lg text-primary-5">
+                    <i className="fas fa-times" />
+                  </button>
+                </div>
+
+                <nav className="mt-3 pt-2">
+                  <PageLinks parentClass="flex flex-col gap-3 py-4" itemClass="nav-link" onLinkClick={closeMenu} />
+                </nav>
+
+                <div className="mt-4 flex justify-center">
+                  <button onClick={closeMenu} className="brand-button">Κλείσιμο</button>
+                </div>
               </div>
-            </div>
+            </motion.div>
           )}
 
           <div className="hidden w-full md:block" id="nav-links-wrap">
